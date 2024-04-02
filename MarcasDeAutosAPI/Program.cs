@@ -11,16 +11,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-
-// Inyección de Dependencias para Inyectar la Configuración de la connection string ubicada en el archivo appsettings.json
-// Configure DbContext with PostgreSQL
+// Configurar el DbContext para conectarse a una base de datos PostgreSQL utilizando Inyección de Dependencias.
+// Esto permite que la cadena de conexión para PostgreSQL sea inyectada desde el archivo appsettings.json.
 builder.Services.AddDbContext<MarcasDeAutosContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("MarcasDeAutosContext")));
 
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configurar el canal de peticiones HTTP
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

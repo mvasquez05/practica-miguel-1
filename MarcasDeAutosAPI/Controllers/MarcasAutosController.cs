@@ -19,8 +19,7 @@ namespace MarcasDeAutosAPI.Controllers
         {
             _context = context;
         }
-
-        // GET: /MarcasAutos
+        
         // Acción para obtener todas las marcas de autos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MarcaAuto>>> GetMarcasAutos()
@@ -28,7 +27,5 @@ namespace MarcasDeAutosAPI.Controllers
             // Asíncronamente obtenemos la lista de marcas de autos y las devolvemos
             return await _context.MarcasAutos.ToListAsync();
         }
-
-        // Aquí podrías agregar más acciones para manejar POST, PUT, DELETE, etc.
     }
 }

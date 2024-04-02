@@ -32,6 +32,5 @@ namespace MarcasDeAutosDATA
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        // Otros campos relevantes para tu modelo de datos
     }
 }
