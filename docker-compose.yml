@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: marcasdeautosdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123xz
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - net
+
+  api:
+    build: .
+    ports:
+      - "8000:80"
+    depends_on:
+      - postgres
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__MarcasDeAutosContext: "Server=postgres;Port=5432;Database=marcasdeautosdb;User Id=postgres;Password=123xz;"
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
+
+volumes:
+  postgres_data:
