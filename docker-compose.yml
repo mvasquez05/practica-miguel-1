@@ -22,6 +22,7 @@ services:
       - postgres
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:80
       ConnectionStrings__MarcasDeAutosContext: "Server=postgres;Port=5432;Database=marcasdeautosdb;User Id=postgres;Password=123xz;"
     networks:
       - net
