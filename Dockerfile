@@ -14,11 +14,14 @@ RUN dotnet restore MarcasDeAutosDATA/MarcasDeAutosDATA.csproj
 COPY MarcasDeAutosAPI/ MarcasDeAutosAPI/
 COPY MarcasDeAutosDATA/ MarcasDeAutosDATA/
 
-# Publicar la aplicación API, especificando el proyecto API
-RUN dotnet publish MarcasDeAutosAPI/ -c Release -o out
+# Publicar la aplicación API, especificando el proyecto API y la ruta de salida correcta
+RUN dotnet publish MarcasDeAutosAPI/ -c Release -o /app/out
 
 # Usar la imagen base de tiempo de ejecución de .NET para la imagen final
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build-env /app/MarcasDeAutosAPI/out .
+
+# Copiar desde el entorno de construcción el resultado de la publicación
+COPY --from=build-env /app/out .
+
 ENTRYPOINT ["dotnet", "MarcasDeAutosAPI.dll"]
