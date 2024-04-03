@@ -1,7 +1,5 @@
 ﻿using MarcasDeAutosDATA;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using Xunit;
 
 namespace MarcasDeAutosTEST
 {

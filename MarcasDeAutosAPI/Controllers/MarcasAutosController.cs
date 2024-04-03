@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MarcasDeAutosDATA;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace MarcasDeAutosAPI.Controllers
 {
