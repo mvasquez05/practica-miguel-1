@@ -35,11 +35,11 @@ namespace MarcasDeAutosTEST
                 var result = await controller.GetMarcasAutos();
 
                 // Assert - verificar los resultados de la acción
-                var marcaList = Assert.IsType<List<MarcaAuto>>(result.Value); // Verifica que el resultado es del tipo List<MarcaAuto>
-                Assert.Equal(3, marcaList.Count); // Asegura que hay tres elementos en la lista
-                Assert.Equal("Toyota", marcaList[0].Nombre); // Asegura que el nombre del primer elemento es "Toyota"
-                Assert.Equal("Kia", marcaList[1].Nombre); // Asegura que el nombre del segundo elemento es "Kia"
-                Assert.Equal("Volvo", marcaList[2].Nombre); // Asegura que el nombre del segundo elemento es "Volvo"
+                var marcaList = Assert.IsType<List<MarcaAuto>>(result.Value); // Verificar que el resultado es del tipo List<MarcaAuto>
+                Assert.Equal(3, marcaList.Count); // Verificar que hay tres elementos en la lista
+                Assert.Equal("Toyota", marcaList[0].Nombre); // Verificar que el nombre del primer elemento es "Toyota"
+                Assert.Equal("Kia", marcaList[1].Nombre); // Verificar que el nombre del segundo elemento es "Kia"
+                Assert.Equal("Volvo", marcaList[2].Nombre); // Verificar que el nombre del segundo elemento es "Volvo"
             }
         }
     }
